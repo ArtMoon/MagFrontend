@@ -61,6 +61,15 @@ namespace FrontendMaga {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Apparatus/Apparatuses.
+        /// </summary>
+        internal static string Apparatuses {
+            get {
+                return ResourceManager.GetString("Apparatuses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на localhost.
         /// </summary>
         internal static string Host {
@@ -79,7 +88,7 @@ namespace FrontendMaga {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/home/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}.
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}.
         /// </summary>
         internal static string SensorDataLoad {
             get {
@@ -88,7 +97,7 @@ namespace FrontendMaga {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/home/Sensor/id?={2}.
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Sensor/Sensor/id?={2}.
         /// </summary>
         internal static string SensorLoad {
             get {

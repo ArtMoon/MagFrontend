@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace FrontendMaga.Interfaces
 {
@@ -20,4 +21,9 @@ namespace FrontendMaga.Interfaces
    {
         T1 ConvertTo<T1>(T2 obj);
    }
+
+    public interface INotifyService<T>
+    {
+        DataTable GetNotification(List<T> values, double maxValue, double minValue);
+    }
 }

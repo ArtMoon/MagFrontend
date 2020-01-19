@@ -7,6 +7,8 @@ using Unity;
 using FrontendMaga.Interfaces;
 using FrontendMaga.Http;
 using FrontendMaga.Data.Converters;
+using FrontendMaga.NotificationModule;
+using FrontendMaga.Data.DataModels;
 
 namespace FrontendMaga
 {
@@ -29,6 +31,7 @@ namespace FrontendMaga
         {
             Container = new UnityContainer();
             Container.RegisterType<IDataLoader, JsonHttpLoader>();
+            Container.RegisterType<INotifyService<Sensor_Vals>, SensorNotificationService>();
             Container.RegisterType<IDataConverter<string>, JsonConverter>();
             
 

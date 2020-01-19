@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Apparatuses" xml:space="preserve">
+    <value>http://{0}:{1}/Apparatus/Apparatuses</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>localhost</value>
   </data>
@@ -124,9 +127,9 @@
     <value>54170</value>
   </data>
   <data name="SensorDataLoad" xml:space="preserve">
-    <value>http://{0}:{1}/home/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}</value>
+    <value>http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}</value>
   </data>
   <data name="SensorLoad" xml:space="preserve">
-    <value>http://{0}:{1}/home/Sensor/id?={2}</value>
+    <value>http://{0}:{1}/Sensor/Sensor/id?={2}</value>
   </data>
 </root>
