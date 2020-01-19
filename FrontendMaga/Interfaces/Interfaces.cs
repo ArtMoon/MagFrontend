@@ -26,4 +26,27 @@ namespace FrontendMaga.Interfaces
     {
         DataTable GetNotification(List<T> values, double maxValue, double minValue);
     }
+
+    public class HttpDataLoader
+    {
+        protected IDataLoader _dataLoader;
+        protected IDataConverter<string> _converter;
+
+        public HttpDataLoader(IDataLoader loader, IDataConverter<string> converter)
+        {
+            _dataLoader = loader;
+            _converter = converter; 
+        }
+
+        public async Task LoadData<T>(Action<List<T>> callBack, string request, params string[] args)
+        {
+            var req = string.Format(request, args);
+            var json = await _dataLoader.LoadData(req);
+            var list = _converter.ConvertTo<List<T>>(json);
+
+            callBack(list);
+        }
+    }
+
+
 }

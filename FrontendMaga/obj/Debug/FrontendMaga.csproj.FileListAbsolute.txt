@@ -20,3 +20,4 @@ C:\Users\79110\source\repos\FrontendMaga\FrontendMaga\obj\Debug\FrontendMaga.pdb
 C:\Users\79110\source\repos\FrontendMaga\FrontendMaga\obj\Debug\FrontendMaga.HttpApiRes.resources
 C:\Users\79110\source\repos\FrontendMaga\FrontendMaga\obj\Debug\FrontendMaga.EnterForm.resources
 C:\Users\79110\source\repos\FrontendMaga\FrontendMaga\obj\Debug\FrontendMaga.RegistrationModule.Registration.resources
+C:\Users\79110\source\repos\FrontendMaga\FrontendMaga\obj\Debug\FrontendMaga.Administration.AdminModule.resources

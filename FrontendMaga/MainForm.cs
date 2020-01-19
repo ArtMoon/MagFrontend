@@ -12,21 +12,17 @@ using System.Collections;
 using FrontendMaga.Data.DataModels;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Drawing2D;
-
-
+using FrontendMaga.Data.Converters;
+using Unity;
 
 namespace FrontendMaga
 {
     public partial class MainForm : Form
     {
-        private IDataConverter<string> _converter;
-        private IDataLoader _loader;
         private INotifyService<Sensor_Vals> _notifyServise;
         private List<ApparatusModel> _tmpApparatus = new List<ApparatusModel>();
-        public MainForm(IDataLoader loader,IDataConverter<string> converter,INotifyService<Sensor_Vals> notifyService)
+        public MainForm(INotifyService<Sensor_Vals> notifyService)
         {
-            _converter = converter;
-            _loader = loader;
             _notifyServise = notifyService;
 
             InitializeComponent();
@@ -37,64 +33,14 @@ namespace FrontendMaga
             pnMonitoring.Visible = true;
             InitSensorChart();
             InitPieChart();
-            await LoadData<ApparatusModel>(
+            var _loader = Program.Container.Resolve<HttpDataLoader>();
+            await _loader.LoadData<ApparatusModel>(
                 (x) =>
                 {
-                    x.OrderBy((n)=> n.Parent_id);
-                    var rootNodes = new List<TreeNode>();                   
-                    var enterNodes = x;
-                    var levels = new Dictionary<int, List<ApparatusModel>>();
-                    int lvlIndex = 0;
-                    while (x.Count > 0)
-                    {
-                        var roots = new List<ApparatusModel>();
-                        for (int i = 0; i < x.Count; i++)
-                        {
-                            for (int j = 0; j < enterNodes.Count; j++)
-                            {
-                                if (x[i].Parent_id == enterNodes[j].Id_Ap)
-                                {                                 
-                                    break;
-                                }
-
-                                if (j == enterNodes.Count-1)
-                                {
-                                    roots.Add(x[i]);
-                                }
-
-                            }
-                        }
-                        var list = new List<ApparatusModel>();
-                    
-                        foreach (ApparatusModel m in roots)
-                        {
-                            list.Add((ApparatusModel)m.Clone());
-                            x.Remove(m);
-                        }
-                        lvlIndex++;
-                        levels.Add(lvlIndex, list);
-                        
-                    }
-
-                    var nodes = new List<TreeNode>();
-                    var root = new List<ApparatusModel>();
-                    levels.TryGetValue(1,out root);
-                    var childs = new List<ApparatusModel>();
-                    levels.TryGetValue(2, out childs);
-                    for(int i = 0; i < root.Count; i++)
-                    {
-                        nodes.Add(new TreeNode(root[i].App_name));
-                        for(int j = 0; j < childs.Count; j++)
-                        {
-                            if(childs[j].Parent_id == root[i].Id_Ap)
-                            {
-                                nodes[i].Nodes.Add(new TreeNode(childs[j].App_name));
-                            }
-                        }
-
-                    }
-                    _tmpApparatus = childs;
-                    _tmpApparatus.AddRange(root);
+                    _tmpApparatus.Clear();
+                    _tmpApparatus.AddRange(x);
+                    var converter = new TreeNodesConverter();
+                    var nodes = converter.ConvertTo(x);
           
                     treeMain.Nodes.AddRange(nodes.ToArray());
 
@@ -142,14 +88,6 @@ namespace FrontendMaga
 
         }
 
-        private async Task LoadData<T>(Action<List<T>> callBack,string request,params string[] args)
-        {
-            var req = string.Format(request, args);
-            var json = await _loader.LoadData(req);
-            var list = _converter.ConvertTo<List<T>>(json);
-           
-            callBack(list);
-        }
 
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -167,7 +105,8 @@ namespace FrontendMaga
             }
             var db = dtpDateBegin.Value.ToString("yyyy-MM-dd");
             var de = dtpDateEnd.Value.AddDays(1).ToString("yyyy-MM-dd");
-            await LoadData<Sensor_Vals>(SensorValsLoaded,HttpApiRes.SensorDataLoad, HttpApiRes.Host, 
+            var _loader = Program.Container.Resolve<HttpDataLoader>();
+            await _loader.LoadData<Sensor_Vals>(SensorValsLoaded,HttpApiRes.SensorDataLoad, HttpApiRes.Host, 
                 HttpApiRes.Port, dgSensors.SelectedCells[0].Value.ToString(),db,de);
         }
 
@@ -201,8 +140,8 @@ namespace FrontendMaga
 
             chartMonitoring.Series["MinNorm"].Points.Clear();
 
-            var minNormValue = chartMonitoring.Series["Values"].Points.Last().YValues[0] - 0.5f;
-            var maxNormValue = minNormValue + 1;
+            var minNormValue = Math.Round((chartMonitoring.Series["Values"].Points.Last().YValues[0] - 0.5f)*10)/10;
+            var maxNormValue = Math.Round((minNormValue + 1)*10)/10;
 
             chartMonitoring.Series["MinNorm"].Points.AddXY(chartMonitoring.Series["Values"].Points[0].XValue,
                 minNormValue);
@@ -241,7 +180,8 @@ namespace FrontendMaga
         private async void treeMain_AfterSelect(object sender, TreeViewEventArgs e)
         {
             var msg = _tmpApparatus.Where((x) => x.App_name == e.Node.Text).ToList()[0].Id_Ap;
-            await LoadData<SensorInfo>((x) =>
+            var _loader = Program.Container.Resolve<HttpDataLoader>();
+            await _loader.LoadData<SensorInfo>((x) =>
             {
                 dgSensors.DataSource = null;
                 if (x == null)

@@ -24,12 +24,12 @@ namespace FrontendMaga.NotificationModule
             {
                 if(val.Sensor_value > maxValue)
                 {
-                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Value excess");
+                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Превышение нормы");
                 }
 
                 if (val.Sensor_value < minValue)
                 {
-                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Value drop");
+                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Значение ниже нормы");
                 }
             }
 
