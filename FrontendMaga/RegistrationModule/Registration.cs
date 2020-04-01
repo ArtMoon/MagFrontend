@@ -13,7 +13,11 @@ namespace FrontendMaga.RegistrationModule
 {
     public partial class Registration : Form
     {
-        public event Action OnSuccess;
+        //Hardcoded passwords
+        private string _userPass = "123";
+        private string _adminPass = "admin";
+
+        public event Action<bool> OnSuccess;
         public Registration()
         {
             InitializeComponent();
@@ -30,10 +34,22 @@ namespace FrontendMaga.RegistrationModule
             }
         }
 
-     
+        //Need Db connection
         private void button1_Click(object sender, EventArgs e)
         {
-            OnSuccess();
+            if (tbPassword.Text == _userPass)
+            {
+                OnSuccess(false);
+                return;
+            }
+
+            if (tbPassword.Text == _adminPass)
+            {
+                OnSuccess(true);
+                return;
+            }
+
+            lbError.Text = "Wrong email or password!";
         }
     }
 }

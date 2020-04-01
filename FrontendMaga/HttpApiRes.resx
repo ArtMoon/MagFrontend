@@ -126,10 +126,28 @@
   <data name="Port" xml:space="preserve">
     <value>54170</value>
   </data>
+  <data name="ReasonLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetProblemReasons/?prId={2}</value>
+  </data>
+  <data name="ReasonPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddReason</value>
+  </data>
+  <data name="RulesLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetApparatusProblems/?apId={2}</value>
+  </data>
+  <data name="RulesPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddProblem</value>
+  </data>
   <data name="SensorDataLoad" xml:space="preserve">
     <value>http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}</value>
   </data>
   <data name="SensorLoad" xml:space="preserve">
     <value>http://{0}:{1}/Sensor/Sensor/id?={2}</value>
+  </data>
+  <data name="SolutionLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetSolutionByReason/?rsId={2}</value>
+  </data>
+  <data name="SolutionPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddSolution</value>
   </data>
 </root>

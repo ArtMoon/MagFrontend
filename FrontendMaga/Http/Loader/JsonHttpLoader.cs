@@ -9,8 +9,12 @@ using FrontendMaga.Interfaces;
 
 namespace FrontendMaga.Http
 {
+    /// <summary>
+    /// Модуль загрузки данных в формате JSON
+    /// </summary>
     public class JsonHttpLoader : IDataLoader
     {
+        
         public async Task<string> LoadData(string url)
         {
             using (var client = new HttpClient())
@@ -22,6 +26,8 @@ namespace FrontendMaga.Http
             }
 
         }
+
+
     }
 
   

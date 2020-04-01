@@ -88,6 +88,42 @@ namespace FrontendMaga {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetProblemReasons/?prId={2}.
+        /// </summary>
+        internal static string ReasonLoad {
+            get {
+                return ResourceManager.GetString("ReasonLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddReason.
+        /// </summary>
+        internal static string ReasonPost {
+            get {
+                return ResourceManager.GetString("ReasonPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetApparatusProblems/?apId={2}.
+        /// </summary>
+        internal static string RulesLoad {
+            get {
+                return ResourceManager.GetString("RulesLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddProblem.
+        /// </summary>
+        internal static string RulesPost {
+            get {
+                return ResourceManager.GetString("RulesPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}.
         /// </summary>
         internal static string SensorDataLoad {
@@ -102,6 +138,24 @@ namespace FrontendMaga {
         internal static string SensorLoad {
             get {
                 return ResourceManager.GetString("SensorLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetSolutionByReason/?rsId={2}.
+        /// </summary>
+        internal static string SolutionLoad {
+            get {
+                return ResourceManager.GetString("SolutionLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddSolution.
+        /// </summary>
+        internal static string SolutionPost {
+            get {
+                return ResourceManager.GetString("SolutionPost", resourceCulture);
             }
         }
     }

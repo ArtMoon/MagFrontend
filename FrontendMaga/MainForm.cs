@@ -21,6 +21,9 @@ namespace FrontendMaga
     {
         private INotifyService<Sensor_Vals> _notifyServise;
         private List<ApparatusModel> _tmpApparatus = new List<ApparatusModel>();
+        private string _currentSensId = string.Empty;
+
+
         public MainForm(INotifyService<Sensor_Vals> notifyService)
         {
             _notifyServise = notifyService;
@@ -37,10 +40,11 @@ namespace FrontendMaga
             await _loader.LoadData<ApparatusModel>(
                 (x) =>
                 {
+                    if (x == null) return;
                     _tmpApparatus.Clear();
                     _tmpApparatus.AddRange(x);
                     var converter = new TreeNodesConverter();
-                    var nodes = converter.ConvertTo(x);
+                    var nodes = converter.GetNodes(x);
           
                     treeMain.Nodes.AddRange(nodes.ToArray());
 
@@ -106,6 +110,7 @@ namespace FrontendMaga
             var db = dtpDateBegin.Value.ToString("yyyy-MM-dd");
             var de = dtpDateEnd.Value.AddDays(1).ToString("yyyy-MM-dd");
             var _loader = Program.Container.Resolve<HttpDataLoader>();
+            _currentSensId = dgSensors.SelectedCells[0].Value.ToString();
             await _loader.LoadData<Sensor_Vals>(SensorValsLoaded,HttpApiRes.SensorDataLoad, HttpApiRes.Host, 
                 HttpApiRes.Port, dgSensors.SelectedCells[0].Value.ToString(),db,de);
         }
@@ -129,7 +134,7 @@ namespace FrontendMaga
             chartPie.Series["Efficiency"].Points.AddXY("", 11);
         }
 
-        private void UpdateSensorChart(List<Sensor_Vals> list)
+        private void UpdateSensorChart(List<Sensor_Vals> list, float min = 0, float max = 0)
         {
             list.OrderBy((x) => x.Date_time);
             chartMonitoring.Series["Values"].Points.Clear();
@@ -139,16 +144,21 @@ namespace FrontendMaga
                     .AddXY(vals.Date_time, vals.Sensor_value);
 
             chartMonitoring.Series["MinNorm"].Points.Clear();
+            chartMonitoring.Series["MaxNorm"].Points.Clear();
 
-            var minNormValue = Math.Round((chartMonitoring.Series["Values"].Points.Last().YValues[0] - 0.5f)*10)/10;
-            var maxNormValue = Math.Round((minNormValue + 1)*10)/10;
+            var row = Program.TEMP_DEMO_DATA_CONTAINER.Select($"Sens_id = {_currentSensId}");
+
+            if (row.Length == 0) return;
+
+            float minNormValue = (float)Convert.ToDouble(row[0][1]);
+            float maxNormValue = (float)Convert.ToDouble(row[0][2]);
 
             chartMonitoring.Series["MinNorm"].Points.AddXY(chartMonitoring.Series["Values"].Points[0].XValue,
                 minNormValue);
             chartMonitoring.Series["MinNorm"].Points.AddXY(chartMonitoring.Series["Values"].Points.Last().XValue,
               minNormValue);
 
-            chartMonitoring.Series["MaxNorm"].Points.Clear();
+            
 
             chartMonitoring.Series["MaxNorm"].Points.AddXY(chartMonitoring.Series["Values"].Points[0].XValue,
                maxNormValue);
@@ -157,6 +167,8 @@ namespace FrontendMaga
 
             LoadNotifications(list, minNormValue, maxNormValue);
         }
+
+     
 
         private void LoadNotifications(List<Sensor_Vals> vals,double minNormValue, double maxNormValue)
         {
@@ -179,7 +191,7 @@ namespace FrontendMaga
 
         private async void treeMain_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            var msg = _tmpApparatus.Where((x) => x.App_name == e.Node.Text).ToList()[0].Id_Ap;
+            var msg = _tmpApparatus.Where((x) => x.full_name == e.Node.Text).ToList()[0].ap_id;
             var _loader = Program.Container.Resolve<HttpDataLoader>();
             await _loader.LoadData<SensorInfo>((x) =>
             {

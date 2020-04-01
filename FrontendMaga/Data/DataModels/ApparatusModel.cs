@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 namespace FrontendMaga.Data.DataModels
 {
     public class ApparatusModel : ICloneable
-    { 
-        public int Id_Ap { get; set; }
-        public string App_name { get; set; }
-        public int? Parent_id { get; set; }
+    {
+        public int ap_id { get; set; }
+        public int? parent_ap_id { get; set; }
+        public string short_name { get; set; }
+        public string full_name { get; set; }
 
         public object Clone()
         {
-            return new ApparatusModel() { Id_Ap = this.Id_Ap, App_name = this.App_name, Parent_id = this.Parent_id };
+            return new ApparatusModel() { ap_id = this.ap_id, full_name = this.full_name, parent_ap_id = this.parent_ap_id, short_name = this.short_name};
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using FrontendMaga.Data.DataModels;
 
 namespace FrontendMaga.Interfaces
 {
@@ -11,7 +12,7 @@ namespace FrontendMaga.Interfaces
    {
         void SearchData();
    }
-
+    
    public interface IDataLoader
    {
         Task<string> LoadData(string url);
@@ -22,6 +23,10 @@ namespace FrontendMaga.Interfaces
         T1 ConvertTo<T1>(T2 obj);
    }
 
+    public interface INotificationService<T1,T2>
+    {
+        DataTable GetNotification(List<T1> values, List<T2> rules);
+    }
     public interface INotifyService<T>
     {
         DataTable GetNotification(List<T> values, double maxValue, double minValue);
@@ -45,6 +50,15 @@ namespace FrontendMaga.Interfaces
             var list = _converter.ConvertTo<List<T>>(json);
 
             callBack(list);
+        }
+
+
+        public class NOtifySerise : INotificationService<Sensor_Vals, Sensor_Vals>
+        {
+            public DataTable GetNotification(List<Sensor_Vals> values, List<Sensor_Vals> rules)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 

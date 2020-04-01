@@ -32,15 +32,15 @@ namespace FrontendMaga
 
 
 
-    
 
-        private void RegistrationCallBack()
+
+        private void RegistrationCallBack(bool isAdmin)
         {
-            if (_activeForm != null) _activeForm.Dispose();
-            menuStrip1.Visible = true;
-            _activeForm = Program.Container.Resolve<MainForm>();
-            _activeForm.MdiParent = this;
-            _activeForm.Show();
+
+            OpenMonitoringForm();
+
+            if (!isAdmin)
+                menuStrip1.Items[1].Visible = false;
         }
 
         private void openSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,11 +50,22 @@ namespace FrontendMaga
             _activeForm = new AdminModule();
             _activeForm.MdiParent = this;
             _activeForm.Show();
+
+        }
+
+        private void OpenMonitoringForm()
+        {
+            if (_activeForm != null) _activeForm.Dispose();
+            menuStrip1.Visible = true;
+            _activeForm = Program.Container.Resolve<MainForm>();
+            _activeForm.MdiParent = this;
+            _activeForm.Show();
+
         }
 
         private void monitoringToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegistrationCallBack();
+            OpenMonitoringForm();
         }
     }
 }
