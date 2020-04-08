@@ -117,64 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="colPrID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSensId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colRule.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colValue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colText.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colReasID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colPrNum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSensor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colReasRule.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colReasValue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colReason.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colProb.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colReasNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSolID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColRsNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSolution.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colParam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSolSensID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colSolNumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="AlarmsDataLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Apparatus/GetAlarms/?sens_id={2}&amp;dateBegin={3}&amp;dateEnd={4}</value>
+  </data>
+  <data name="Apparatuses" xml:space="preserve">
+    <value>http://{0}:{1}/Apparatus/Apparatuses</value>
+  </data>
+  <data name="DeleteProblem" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/DeleteProblem</value>
+  </data>
+  <data name="DeleteReason" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/DeleteReason</value>
+  </data>
+  <data name="DeleteSolution" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/DeleteSolution</value>
+  </data>
+  <data name="ExecuteAlarmsSearch" xml:space="preserve">
+    <value>http://{0}:{1}/Apparatus/ExecuteAlarmsSearch/?apID={2}&amp;dateBegin={3}&amp;dateEnd={4}</value>
+  </data>
+  <data name="Host" xml:space="preserve">
+    <value>localhost</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>54170</value>
+  </data>
+  <data name="ReasonLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetProblemReasons/?prId={2}</value>
+  </data>
+  <data name="ReasonPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddReason</value>
+  </data>
+  <data name="RulesLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetApparatusProblems/?apId={2}</value>
+  </data>
+  <data name="RulesPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddProblem</value>
+  </data>
+  <data name="SensorDataLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}</value>
+  </data>
+  <data name="SensorLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Sensor/Sensor/id?={2}</value>
+  </data>
+  <data name="SolutionLoad" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/GetSolutionByReason/?rsId={2}</value>
+  </data>
+  <data name="SolutionPost" xml:space="preserve">
+    <value>http://{0}:{1}/Knowledge/AddSolution</value>
+  </data>
 </root>

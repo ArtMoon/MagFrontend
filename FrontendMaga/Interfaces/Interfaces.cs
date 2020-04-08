@@ -52,6 +52,13 @@ namespace FrontendMaga.Interfaces
             callBack(list);
         }
 
+        public async Task LoadRawData(Action<string> callBack, string request, params string[] args)
+        {
+            var req = string.Format(request, args);
+            var json = await _dataLoader.LoadData(req);
+            callBack(json);
+        }
+
 
         public class NOtifySerise : INotificationService<Sensor_Vals, Sensor_Vals>
         {

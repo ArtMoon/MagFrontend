@@ -22,14 +22,14 @@ namespace FrontendMaga.NotificationModule
 
             foreach(Sensor_Vals val in values)
             {
-                if(val.Sensor_value > maxValue)
+                if(val.val > maxValue)
                 {
-                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Превышение нормы");
+                    table.Rows.Add(minValue, maxValue, val.val_date, val.val, "Превышение нормы");
                 }
 
-                if (val.Sensor_value < minValue)
+                if (val.val < minValue)
                 {
-                    table.Rows.Add(minValue, maxValue, val.Date_time, val.Sensor_value, "Значение ниже нормы");
+                    table.Rows.Add(minValue, maxValue, val.val_date, val.val, "Значение ниже нормы");
                 }
             }
 

@@ -51,5 +51,16 @@ namespace FrontendMaga.RegistrationModule
 
             lbError.Text = "Wrong email or password!";
         }
+
+        private void Registration_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button1_Click(null, null);
+        }
+
+        private void Registration_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

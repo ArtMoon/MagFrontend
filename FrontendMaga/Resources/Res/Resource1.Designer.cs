@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FrontendMaga {
+namespace FrontendMaga.Resources.Res {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace FrontendMaga {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class HttpApiRes {
+    internal class Resource1 {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal HttpApiRes() {
+        internal Resource1() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace FrontendMaga {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FrontendMaga.HttpApiRes", typeof(HttpApiRes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FrontendMaga.Resources.Res.Resource1", typeof(Resource1).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,101 +61,82 @@ namespace FrontendMaga {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Apparatus/Apparatuses.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string Apparatuses {
+        internal static System.Drawing.Bitmap _100_1005846_waiter_free_icon_avatar_profile_circle_png1 {
             get {
-                return ResourceManager.GetString("Apparatuses", resourceCulture);
+                object obj = ResourceManager.GetObject("_100_1005846_waiter_free_icon_avatar_profile_circle_png1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на localhost.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string Host {
+        internal static System.Drawing.Bitmap btnDisabled {
             get {
-                return ResourceManager.GetString("Host", resourceCulture);
+                object obj = ResourceManager.GetObject("btnDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 54170.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string Port {
+        internal static System.Drawing.Bitmap btnPrimary1 {
             get {
-                return ResourceManager.GetString("Port", resourceCulture);
+                object obj = ResourceManager.GetObject("btnPrimary1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetProblemReasons/?prId={2}.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string ReasonLoad {
+        internal static System.Drawing.Bitmap dashboard1 {
             get {
-                return ResourceManager.GetString("ReasonLoad", resourceCulture);
+                object obj = ResourceManager.GetObject("dashboard1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddReason.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string ReasonPost {
+        internal static System.Drawing.Bitmap kisspng_computer_icons_icon_design_user_5b3e529cdf3df9_87457002153081103691441 {
             get {
-                return ResourceManager.GetString("ReasonPost", resourceCulture);
+                object obj = ResourceManager.GetObject("kisspng_computer_icons_icon_design_user_5b3e529cdf3df9_87457002153081103691441", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetApparatusProblems/?apId={2}.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string RulesLoad {
+        internal static System.Drawing.Bitmap ui1 {
             get {
-                return ResourceManager.GetString("RulesLoad", resourceCulture);
+                object obj = ResourceManager.GetObject("ui1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddProblem.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string RulesPost {
+        internal static System.Drawing.Bitmap unnamed1 {
             get {
-                return ResourceManager.GetString("RulesPost", resourceCulture);
+                object obj = ResourceManager.GetObject("unnamed1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Sensor/SensorVal/id?={2}&amp;b_d={3}&amp;d_e={4}.
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static string SensorDataLoad {
+        internal static System.Drawing.Bitmap wpcb9b8fcd1 {
             get {
-                return ResourceManager.GetString("SensorDataLoad", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Sensor/Sensor/id?={2}.
-        /// </summary>
-        internal static string SensorLoad {
-            get {
-                return ResourceManager.GetString("SensorLoad", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/GetSolutionByReason/?rsId={2}.
-        /// </summary>
-        internal static string SolutionLoad {
-            get {
-                return ResourceManager.GetString("SolutionLoad", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на http://{0}:{1}/Knowledge/AddSolution.
-        /// </summary>
-        internal static string SolutionPost {
-            get {
-                return ResourceManager.GetString("SolutionPost", resourceCulture);
+                object obj = ResourceManager.GetObject("wpcb9b8fcd1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

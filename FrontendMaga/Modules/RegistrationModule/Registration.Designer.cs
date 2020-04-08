@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,7 +41,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.lbError = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -59,6 +59,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(503, 102);
             this.panel2.TabIndex = 0;
+            // 
+            // lbError
+            // 
+            this.lbError.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbError.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbError.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbError.Location = new System.Drawing.Point(0, 89);
+            this.lbError.Name = "lbError";
+            this.lbError.Size = new System.Drawing.Size(503, 13);
+            this.lbError.TabIndex = 1;
+            this.lbError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -173,7 +184,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackgroundImage = global::FrontendMaga.Resource1.btnPrimary;
+            this.button1.BackgroundImage = global::FrontendMaga.Resources.Res.Resource1.btnPrimary1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -189,7 +200,7 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Transparent;
-            this.pnlMain.BackgroundImage = global::FrontendMaga.Resource1.wpcb9b8fcd;
+            this.pnlMain.BackgroundImage = global::FrontendMaga.Resources.Res.Resource1.wpcb9b8fcd1;
             this.pnlMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlMain.Controls.Add(this.panel5);
             this.pnlMain.Controls.Add(this.panel4);
@@ -199,17 +210,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(503, 378);
             this.pnlMain.TabIndex = 1;
-            // 
-            // lbError
-            // 
-            this.lbError.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbError.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbError.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbError.Location = new System.Drawing.Point(0, 89);
-            this.lbError.Name = "lbError";
-            this.lbError.Size = new System.Drawing.Size(503, 13);
-            this.lbError.TabIndex = 1;
-            this.lbError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Registration
             // 
@@ -225,6 +225,8 @@
             this.Name = "Registration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Registration_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Registration_KeyPress);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

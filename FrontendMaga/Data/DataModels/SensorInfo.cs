@@ -3,9 +3,8 @@ namespace FrontendMaga.Data.DataModels
 {
     class SensorInfo
     {
-        public int Id { get; set; }
-        public string SensorName { get; set; }
-        public string Description { get; set; }
-        public int ParentId { get; set; }
+        public int sens_id { get; set; }
+        public string sens_name { get; set; }
+        public string description { get; set; }
     }
 }
